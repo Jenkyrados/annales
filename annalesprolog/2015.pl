@@ -29,7 +29,7 @@ tous_policiers_lynch(N,P) :-
 genre_stable(N) :-
 	film(_,_,N,G,_),
 	not((film(_,_,N,G2,_),
-		G2 \== G)).
+		G2 == G)).
 
 % Q2.1
 search(_,[]).
