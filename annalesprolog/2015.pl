@@ -21,9 +21,8 @@ pas_eastwoord(T) :-
 
 % Q1.4
 tous_policiers_lynch(N,P) :-
-	film(T,_,lynch,policier,_),
-	vedette(T,N,_),
-	acteur(N,P,_,m,_).
+	acteur(N,P,_,m,_),
+	not(film(T,_,lynch,policier,_),not(vedette(T,N,_))).
 
 % Q1.5
 genre_stable(N) :-
