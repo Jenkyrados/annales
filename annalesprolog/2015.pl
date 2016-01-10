@@ -26,6 +26,15 @@ tous_policiers_lynch(N,P) :-
 	acteur(N,P,_,m,_),
 	not(film(T,_,lynch,policier,_),not(vedette(T,N,_))).
 
+% Eclipse prolog est un peu bê-bête, donc : 
+tous_policiers_lynch2(N,P) :-
+	acteur(N,P,_,m,_),
+	not(sub(N)).
+
+sub(N) :-
+	film(T,_,lynch,policier,_),
+	not(vedette(T,N,_)).
+	
 % Q1.5
 genre_stable(N) :-
 	film(_,_,N,G,_),
