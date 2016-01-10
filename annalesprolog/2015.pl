@@ -1,3 +1,30 @@
+film(invictus,2009,eastwood,biographie,134).
+film(gran_torino,2008,eastwood,drame,116).
+film(interstellar,2015,nolan,science_fiction,169).
+film(will_hunting,1997,van_sant,drame,121).
+film(l_inspecteur_harry,1972,siegel,policier,102).
+film(blue_velvet,1986,lynch,policier,120).
+film(twin_peaks_fire_walk_with_me,1992,lynch,policier,135).
+film(dune,1984,science_fiction,130).
+
+acteur(eastwood,clint,1930,m,75).
+acteur(damon,matt,1970,m,65).
+acteur(freeman,morgan,1937,m,91).
+acteur(hooper,dennis,1936,m,151).
+acteur(mac_lachlan,kyle,1959,m,37).
+acteur(rossellini,isabella,1952,f,45).
+
+vedette(invictus,freeman,mandela).
+vedette(invictus,damon,piennar).
+vedette(gran_torino,eastwood,kowalski).
+vedette(interstellar,damon,dr_mann).
+vedette(l_inspecteur_harry,eastwood,harry).
+vedette(will_hunting,damon,hunting).
+vedette(dune,mac_lachlan,atreides).
+vedette(blue_velvet,mac_lachlan,beaumont).
+vedette(blue_velvet,rossellini,vallens).
+vedette(blue_velvet,hooper,booth).
+vedette(twin_peaks_fire_walk_with_me,mac_lachlan,cooper).
 % Q1.1
 
 real_acteur(N,P,T) :-
@@ -24,7 +51,7 @@ pas_eastwoord(T) :-
 % Q1.4
 tous_policiers_lynch(N,P) :-
 	acteur(N,P,_,m,_),
-	not(film(T,_,lynch,policier,_),not(vedette(T,N,_))).
+	not((film(T,_,lynch,policier,_),not(vedette(T,N,_)))).
 
 % Eclipse prolog est un peu bê-bête, donc : 
 tous_policiers_lynch2(N,P) :-
@@ -34,7 +61,7 @@ tous_policiers_lynch2(N,P) :-
 sub(N) :-
 	film(T,_,lynch,policier,_),
 	not(vedette(T,N,_)).
-	
+
 % Q1.5
 genre_stable(N) :-
 	film(_,_,N,G,_),
