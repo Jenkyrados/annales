@@ -2,7 +2,8 @@
 
 real_acteur(N,P,T) :-
 	film(T,_,N,_,_),
-	acteur(N,P,_).
+	acteur(N,P,_),
+	vedette(T,N,_).
 
 % Q1.2
 trois_vedettes(T,A) :-
@@ -17,7 +18,8 @@ trois_vedettes(T,A) :-
 % Q1.3
 pas_eastwoord(T) :-
 	film(T,_,N,_,_),
-	N \== eastwood.
+	N \== eastwood,
+	not(vedette(T,eastwood,_)).
 
 % Q1.4
 tous_policiers_lynch(N,P) :-
